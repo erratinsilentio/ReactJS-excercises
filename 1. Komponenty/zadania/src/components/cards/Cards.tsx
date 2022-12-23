@@ -1,6 +1,10 @@
 import { Data } from "./data";
 import style from "./cards.module.css";
 
+interface Props {
+  data?: Data;
+  cards?: Data[];
+}
 export const Card: React.FC<Data> = ({ data }) => {
   return (
     <div className={style.card}>
@@ -21,7 +25,7 @@ export const Card: React.FC<Data> = ({ data }) => {
   );
 };
 
-export const Wrapper: React.FC<Data[]> = ({ cards }) => {
+export const Wrapper: React.FC<Props> = ({ cards }) => {
   return (
     <ul className={style.cardcontainer}>
       {cards.map((card) => (

@@ -14,7 +14,6 @@
   }
   .cardcontainer {
     display: flex;
-    outline: 1px solid red;
     flex-direction: column;
     justify-content: center;
     align-items: center;

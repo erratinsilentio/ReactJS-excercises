@@ -4,28 +4,27 @@
 }
 
 @media only screen and (max-width: 767px) {
-}
-
-@media only screen and (min-width: 768px) {
-
 
     .container{
-      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
-      background-color: #a5f3fc;  
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .comment{
-        width: 95%;       
+        width: 90%;
+        max-width: 90%;
+        padding: 20px;
+        background-color: #a5f3fc;  
         border: 1px solid #164e63;
         border-left: 5px solid #164e63;
-        border-right: 5px solid #164e63;
         margin-top: 10px;
     }
 
     .user{
-        color: ecfeff;
-        width: 100%;
+        max-width: 100%;
         height: 30px;
         line-height: 30px;
         padding-left: 10px;
@@ -35,7 +34,48 @@
         background-color: #ecfeff;
         padding-left: 15px;
         line-height: 30px;
-        margin-bottom: 0px;
+        margin-bottom: 10px;
+        overflow-y: auto;
+        max-width: 100%;
+    }
+    
+
+}
+
+@media only screen and (min-width: 768px) {
+
+
+    .container{
+      max-width: 100%;
+      overflow-x: hidden;
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comment{
+        width: 95%;      
+        padding: 20px;
+        background-color: #a5f3fc;  
+        border: 1px solid #164e63;
+        border-left: 5px solid #164e63;
+        margin-top: 10px;
+    }
+
+    .user{
+        max-width: 100%;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+        overflow-y: auto;
+    }
+    
+    .text{
+        background-color: #ecfeff;
+        padding-left: 15px;
+        line-height: 30px;
+        margin-bottom: 10px;
+        overflow-y: auto;
         overflow-wrap: break-word;
         max-width: 100%;
     }
@@ -45,32 +85,40 @@
 
 @media only screen and (min-width: 1200px) {
     .container{
-      width: auto;
-    overflow-x: hidden;
+        max-width: 100%;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     
     .comment{
-        width: 100%;
-        
+        width: 95%;
+        padding: 20px;
+        background-color: #a5f3fc;
         border: 1px solid #164e63;
         border-left: 5px solid #164e63;
         margin-top: 10px;
     }
 
     .user{
-        color: ecfeff;
-        width: 100%;
+        max-width: 100%;
         height: 30px;
         line-height: 30px;
         padding-left: 10px;
+        overflow-y: auto;
     }
     
     .text{
+        max-width: 100%;
+        overflow-y: auto;
+        overflow-wrap: break-word;
         background-color: #ecfeff;
         padding-left: 15px;
         line-height: 30px;
-        margin-bottom: 0px;
+        margin-bottom: 10px;
+        overflow-y: auto;
     }
     
 
