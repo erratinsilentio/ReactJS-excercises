@@ -1,4 +1,5 @@
 export interface Comment {
+  data?: any;
   username: string;
   comment: string;
   subComments?: Comment[];

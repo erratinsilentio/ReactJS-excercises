@@ -1,3 +1,8 @@
+:root{
+    margin: 0;
+    padding: 0;
+}
+
 @media only screen and (max-width: 767px) {
 }
 
@@ -5,4 +10,34 @@
 }
 
 @media only screen and (min-width: 1200px) {
+    .container{
+      width: auto;
+    overflow-x: hidden;
+    }
+
+    .comment{
+        width: 100%;
+        
+        border: 1px solid #164e63;
+        border-left: 5px solid #164e63;
+        margin-top: 10px;
+    }
+
+    .user{
+        color: ecfeff;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+    }
+    
+    .text{
+        background-color: #ecfeff;
+        padding-left: 15px;
+        line-height: 30px;
+        margin-bottom: 0px;
+    }
+    
+
 }
+
