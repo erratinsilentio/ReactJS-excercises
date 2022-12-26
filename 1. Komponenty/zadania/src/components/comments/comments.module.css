@@ -1,6 +1,8 @@
 :root{
     margin: 0;
     padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
 }
 
 @media only screen and (max-width: 767px) {
@@ -17,9 +19,10 @@
         width: 90%;
         max-width: 90%;
         padding: 20px;
-        background-color: #a5f3fc;  
-        border: 1px solid #164e63;
-        border-left: 5px solid #164e63;
+        background-color: #1f2937;
+        border-top: 1px solid #06b6d4;
+        border-left: 5px solid #06b6d4;
+        border-radius: 10px;
         margin-top: 10px;
         overflow: hidden;
     }
@@ -29,6 +32,8 @@
         height: 30px;
         line-height: 30px;
         padding-left: 10px;
+        color: #ecfeff;
+        font-weight: 100;
     }
     
     .text{
@@ -38,6 +43,14 @@
         margin-bottom: 10px;
         overflow-y: auto;
         max-width: 100%;
+        border-radius: 10px;
+    }
+
+    button{
+        border: 1px solid #06b6d4;
+        color: #06b6d4;
+        border-radius: 10px;
+        background-color: transparent;
     }
     
 
@@ -56,10 +69,11 @@
 
     .comment{
         width: 95%;      
-        padding: 20px;
-        background-color: #a5f3fc;  
-        border: 1px solid #164e63;
-        border-left: 5px solid #164e63;
+        padding: 20px; 
+        background-color: #1f2937;
+        border-top: 1px solid #06b6d4;
+        border-left: 5px solid #06b6d4;
+        border-radius: 10px;
         margin-top: 10px;
         overflow: hidden;
     }
@@ -69,7 +83,8 @@
         height: 30px;
         line-height: 30px;
         padding-left: 10px;
-        overflow-y: auto;
+        color: #ecfeff;
+        font-weight: 100;
     }
     
     .text{
@@ -82,6 +97,12 @@
         max-width: 100%;
     }
     
+    button{
+        border: 1px solid #06b6d4;
+        color: #06b6d4;
+        border-radius: 10px;
+        background-color: transparent;
+    }
 
 }
 
@@ -98,9 +119,10 @@
     .comment{
         width: 95%;
         padding: 20px;
-        background-color: #a5f3fc;
-        border: 1px solid #164e63;
-        border-left: 5px solid #164e63;
+        background-color: #1f2937;
+        border-top: 1px solid #06b6d4;
+        border-left: 5px solid #06b6d4;
+        border-radius: 10px;
         margin-top: 10px;
         overflow: hidden;
     }
@@ -110,7 +132,7 @@
         height: 30px;
         line-height: 30px;
         padding-left: 10px;
-        overflow-y: auto;
+        color: #ecfeff;
     }
     
     .text{
@@ -124,6 +146,12 @@
         overflow-y: auto;
     }
     
+    button{
+        border: 1px solid #06b6d4;
+        color: #06b6d4;
+        border-radius: 10px;
+        background-color: transparent;
+    }
 
 }
 
