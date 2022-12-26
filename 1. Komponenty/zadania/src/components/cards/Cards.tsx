@@ -1,13 +1,36 @@
 import { Data } from "./data";
 import style from "./cards.module.css";
+import { JSXElementConstructor, ReactNode, SyntheticEvent, useState } from "react";
 
 interface Props {
   data?: Data;
   cards?: Data[];
 }
-export const Card: React.FC<Data> = ({ data }) => {
+
+interface Form {
+  inputValue?: string;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const CardForm: React.FC<Form> = ({ inputValue, handleChange }) => {
   return (
-    <div className={style.card}>
+    <form>
+      <input name="text" value={inputValue} onChange={handleChange} placeholder="search..." />
+    </form>
+  );
+};
+
+export const Card: React.FC<Data, Form> = ({ data, inputValue }) => {
+  const checkName = (input: Form) => {
+    const name = data.name + data.surname;
+    if (name.toLowerCase().includes(input.toLowerCase()) && input != "") {
+      return true;
+    }
+    return false;
+  };
+
+  return (
+    <div className={`${style.card} ${checkName(inputValue) && style.chosen}`}>
       <div className={style.left}>
         <img className={style.avatar} src={data.imgSrc} alt="avatar" />
       </div>
@@ -26,10 +49,15 @@ export const Card: React.FC<Data> = ({ data }) => {
 };
 
 export const Wrapper: React.FC<Props> = ({ cards }) => {
+  const [inputValue, setInputValue] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value);
+
   return (
     <ul className={style.cardcontainer}>
+      <CardForm inputValue={inputValue} handleChange={handleChange} />
       {cards.map((card) => (
-        <Card data={card} key={card.id} />
+        <Card data={card} key={card.id} inputValue={inputValue} />
       ))}
     </ul>
   );

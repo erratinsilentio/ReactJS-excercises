@@ -12,10 +12,10 @@ export const CommentSection: React.FC<Props> = ({ data }) => {
     [key: string]: React.CSSProperties;
   };
 
-  const hidden: React.CSSProperties = () => {
-    // height: !open && '10px';
-    return { display: !open && "none" };
-  };
+  // const hidden: React.CSSProperties = () => {
+  //   // height: !open && '10px';
+  //   return { display: !open && "none" };
+  // };
 
   return (
     <section className={style.container}>
