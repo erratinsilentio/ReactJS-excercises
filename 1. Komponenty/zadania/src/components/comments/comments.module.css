@@ -21,6 +21,7 @@
         border: 1px solid #164e63;
         border-left: 5px solid #164e63;
         margin-top: 10px;
+        overflow: hidden;
     }
 
     .user{
@@ -60,6 +61,7 @@
         border: 1px solid #164e63;
         border-left: 5px solid #164e63;
         margin-top: 10px;
+        overflow: hidden;
     }
 
     .user{
@@ -100,6 +102,7 @@
         border: 1px solid #164e63;
         border-left: 5px solid #164e63;
         margin-top: 10px;
+        overflow: hidden;
     }
 
     .user{
