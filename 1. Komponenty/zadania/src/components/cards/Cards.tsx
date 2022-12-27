@@ -7,6 +7,10 @@ interface Props {
   cards?: Data[];
 }
 
+interface CardProps {
+  data: Data;
+  inputValue: string;
+}
 interface Form {
   inputValue?: string;
   handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -20,8 +24,8 @@ export const CardForm: React.FC<Form> = ({ inputValue, handleChange }) => {
   );
 };
 
-export const Card: React.FC<Data, Form> = ({ data, inputValue }) => {
-  const checkName = (input: Form) => {
+export const Card: React.FC<CardProps> = ({ data, inputValue }) => {
+  const checkName = (input: string) => {
     const name = data.name + data.surname;
     if (name.toLowerCase().includes(input.toLowerCase()) && input != "") {
       return true;
