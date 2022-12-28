@@ -12,18 +12,13 @@ export const CommentSection: React.FC<Props> = ({ data }) => {
     [key: string]: React.CSSProperties;
   };
 
-  // const hidden: React.CSSProperties = () => {
-  //   // height: !open && '10px';
-  //   return { display: !open && "none" };
-  // };
-
   return (
     <section className={style.container}>
       {data.map((item) => (
         <article style={{ height: !open && "10px" }} className={style.comment}>
           <button
             onClick={(event: SyntheticEvent) => {
-              setOpen(!open);
+              setOpen((open) => !open);
             }}
           >
             {open ? "hide" : "show"}

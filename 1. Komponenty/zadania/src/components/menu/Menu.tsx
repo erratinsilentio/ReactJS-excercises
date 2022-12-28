@@ -15,7 +15,7 @@ export const SideMenu: React.FC<Props> = ({ data }) => {
       <div className={style.toggle}>
         <GiHamburgerMenu
           onClick={(event: MouseEventHandler) => {
-            setOpen(!open);
+            setOpen((open) => !open);
           }}
           className={style.button}
         />

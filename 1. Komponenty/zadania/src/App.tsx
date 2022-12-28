@@ -8,7 +8,8 @@ import { CommentSection } from "./components/comments/Comments";
 import { commentData } from "./components/comments/data";
 import { KidsSection } from "./components/Kids/Kids";
 import { kids } from "./components/Kids/data";
-
+import { Posts } from "./components/posts/Posts";
+import { Title } from "./components/title/Title";
 function App() {
   type Option = 1 | 2;
   const [option, setOption] = useState<Option>(1);
@@ -16,9 +17,12 @@ function App() {
   return (
     <>
       <SideMenu data={menuData} />
-      <Wrapper cards={cards} />;
+      <Wrapper cards={cards} />;<Title>COMMENT SECTION</Title>
       <CommentSection data={commentData} />
+      <Title>KIDS FORM</Title>
       <KidsSection kids={kids} />
+      <Title>POSTS</Title>
+      <Posts />
     </>
   );
 }

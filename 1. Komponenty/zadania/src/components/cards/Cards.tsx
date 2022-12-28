@@ -55,7 +55,8 @@ export const Card: React.FC<CardProps> = ({ data, inputValue }) => {
 export const Wrapper: React.FC<Props> = ({ cards }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInputValue((inputValue) => e.target.value);
 
   return (
     <ul className={style.cardcontainer}>
