@@ -1,10 +1,15 @@
 import { Data } from "./data";
 import style from "./cards.module.css";
-import { JSXElementConstructor, ReactNode, SyntheticEvent, useState } from "react";
+import {
+  JSXElementConstructor,
+  ReactNode,
+  SyntheticEvent,
+  useState,
+} from "react";
 
 interface Props {
   data?: Data;
-  cards?: Data[];
+  cards: Data[];
 }
 
 interface CardProps {
@@ -19,7 +24,12 @@ interface Form {
 export const CardForm: React.FC<Form> = ({ inputValue, handleChange }) => {
   return (
     <form>
-      <input name="text" value={inputValue} onChange={handleChange} placeholder="search..." />
+      <input
+        name="text"
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="search..."
+      />
     </form>
   );
 };
@@ -27,10 +37,7 @@ export const CardForm: React.FC<Form> = ({ inputValue, handleChange }) => {
 export const Card: React.FC<CardProps> = ({ data, inputValue }) => {
   const checkName = (input: string) => {
     const name = data.name + data.surname;
-    if (name.toLowerCase().includes(input.toLowerCase()) && input != "") {
-      return true;
-    }
-    return false;
+    return name.toLowerCase().includes(input.toLowerCase()) && input != "";
   };
 
   return (
@@ -52,7 +59,7 @@ export const Card: React.FC<CardProps> = ({ data, inputValue }) => {
   );
 };
 
-export const Wrapper: React.FC<Props> = ({ cards }) => {
+export const Wrapper = ({ cards }: Props) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>

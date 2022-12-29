@@ -3,8 +3,8 @@ import { useForm } from "../../utils/useForm";
 import { Kid } from "./data";
 
 interface FormProps {
-  list: [];
-  setList: (list: Kid[]) => Kid[];
+  list: Kid[];
+  setList: React.Dispatch<React.SetStateAction<Kid[]>>;
 }
 export const KidsForm: React.FC<FormProps> = ({ list, setList }) => {
   const { nameInput, ageInput, handleSubmit } = useForm(list, setList);
@@ -19,7 +19,14 @@ export const KidsForm: React.FC<FormProps> = ({ list, setList }) => {
         className={style.kidName}
         ref={nameInput}
       />
-      <input name="age" type="number" min={1} max={17} ref={ageInput} className={style.kidAge} />
+      <input
+        name="age"
+        type="number"
+        min={1}
+        max={17}
+        ref={ageInput}
+        className={style.kidAge}
+      />
       <button type="submit" className={style.addKidButton}>
         Add
       </button>

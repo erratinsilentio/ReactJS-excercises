@@ -8,8 +8,8 @@ interface KidProps {
 export const KidsTable: React.FC<KidProps> = ({ kids }) => {
   return (
     <ul className={style.table}>
-      {kids.map((kid) => (
-        <li className={style.kid}>
+      {kids.map((kid, index) => (
+        <li className={style.kid} key={`${name}${index}`}>
           {kid.name}, {kid.age}
         </li>
       ))}
