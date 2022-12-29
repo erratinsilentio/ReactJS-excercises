@@ -4,7 +4,7 @@ import style from "./menu.module.css";
 import { MouseEventHandler, useState } from "react";
 
 interface Props {
-  data?: Menu[];
+  data: Menu[];
 }
 
 export const SideMenu: React.FC<Props> = ({ data }) => {

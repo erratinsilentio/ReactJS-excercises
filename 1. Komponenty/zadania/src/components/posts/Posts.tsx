@@ -23,16 +23,19 @@ const Post: React.FC<PostProps> = ({ item }) => {
 };
 export const Posts = () => {
   const url = "https://jsonplaceholder.typicode.com/posts";
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
-  const { data, loading, error } = useFetch(url);
+  const { data, loading, error } = useFetch<Post[]>(url);
 
   useEffect(() => {
-    setPosts((posts) => data);
+    setPosts(data || []);
   }, [data]);
 
-  const prevPage = () => (page > 1 ? setPage((page) => page - 1) : null);
-  const nextPage = () => (page < posts.length / 4 ? setPage((page) => page + 1) : null);
+  const prevPage = () => (page > 1 ? setPage((page) => page - 1) : 1);
+  const nextPage = () =>
+    page < posts.length / 4
+      ? setPage((page) => page + 1)
+      : Math.ceil(posts.length / 4);
 
   if (posts) {
     const forCurrentPage = (page - 1) * 4;

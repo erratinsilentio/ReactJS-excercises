@@ -4,57 +4,60 @@ export interface Item {
   product: string;
   quantity: number;
 }
-export interface Cart {
-  cart: Item[];
-}
 
-export const initialState: Cart = { cart: [{ product: "buty", quantity: 5 }] };
+export const initialState: Item[] = [{ product: "buty", quantity: 5 }];
 
-function AddToCart(product: Item, state: Cart) {
-  let cart = state;
-  let checkIfInCart = state.find((item) => item === product);
+function AddToCart(product: Item, state: Item[]): Item[] {
+  const checkIfInCart = state.some((item) => item === product);
 
   if (checkIfInCart) {
-    let updatedCart = state.map((item) => (item === product ? item.quantity++ : item));
-    return updatedCart;
-  }
-
-  if (!checkIfInCart) {
-    let updatedCart = [...state, product];
-    return updatedCart;
+    return state.map((item) =>
+      item === product ? { ...item, quantity: item.quantity++ } : item
+    );
+  } else {
+    return [...state, product];
   }
 }
 
-function RemoveFromCart(product: Item, state: Cart) {
-  let checkIfInCart = state.find((item) => item === product);
+function RemoveFromCart(product: Item, state: Item[]): Item[] {
+  const checkIfInCart = state.find((item) => item === product);
 
   if (checkIfInCart?.quantity === 1) {
     let updatedCart = state.filter((item) => item !== product);
     return updatedCart;
-  }
-
-  if (checkIfInCart?.quantity > 1) {
-    let updatedCart = state.map((item) => (item === product ? item.quantity-- : item));
+  } else if (checkIfInCart && checkIfInCart?.quantity > 1) {
+    let updatedCart = state.map((item) =>
+      item === product ? { ...item, quantity: item.quantity-- } : item
+    );
     return updatedCart;
   }
-
-  return;
 }
-function reducer(state, action) {
+type ActionType =
+  | { type: "add"; payload: Item }
+  | { type: "remove"; payload: Item };
+
+function reducer(
+  state: typeof initialState,
+  action: ActionType
+): typeof initialState {
   switch (action.type) {
     case "add":
-      return { cart: AddToCart(action.payload, state) };
+      return AddToCart(action.payload, state);
     case "remove":
-      return { cart: RemoveFromCart(action.payload, state) };
+      return RemoveFromCart(action.payload, state);
   }
 }
 
-export const Shop: React.FC<Item> = ({ item }) => {
+export const Shop: React.FC<Item> = ({ item }: { item: Item[] }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      <button onClick={() => dispatch({ type: "add", payload: item })}>Add</button>
-      <button onClick={() => dispatch({ type: "remove", payload: item })}>Remove</button>
+      <button onClick={() => dispatch({ type: "add", payload: item })}>
+        Add
+      </button>
+      <button onClick={() => dispatch({ type: "remove", payload: item })}>
+        Remove
+      </button>
     </>
   );
 };

@@ -19,7 +19,8 @@ function App() {
   return (
     <>
       <SideMenu data={menuData} />
-      <Wrapper cards={cards} />;<Title>COMMENT SECTION</Title>
+      <Wrapper cards={cards} />
+      <Title>COMMENT SECTION</Title>
       <CommentSection data={commentData} />
       <Title>KIDS FORM</Title>
       <KidsSection kids={kids} />
