@@ -10,6 +10,7 @@ import { KidsSection } from "./components/Kids/Kids";
 import { kids } from "./components/Kids/data";
 import { Posts } from "./components/posts/Posts";
 import { Title } from "./components/title/Title";
+import { Click } from "./components/click/Click";
 
 function App() {
   type Option = 1 | 2;
@@ -24,6 +25,8 @@ function App() {
       <KidsSection kids={kids} />
       <Title>POSTS</Title>
       <Posts />
+      <Title>CLICK OUTSIDE</Title>
+      <Click />
     </>
   );
 }
