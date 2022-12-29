@@ -13,7 +13,7 @@ export const KidsSection: React.FC<KidProps> = ({ kids }) => {
 
   return (
     <section className={style.container}>
-      <KidsForm />
+      <KidsForm list={list} setList={setList} />
       <KidsTable kids={list} />
     </section>
   );

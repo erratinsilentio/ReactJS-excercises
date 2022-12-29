@@ -1,14 +1,13 @@
 import style from "./kids.module.css";
 import { useForm } from "../../utils/useForm";
+import { Kid } from "./data";
 
 interface FormProps {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  ageInput: number | string;
-  nameInput: string;
-  addKid: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  list: [];
+  setList: (list: Kid[]) => Kid[];
 }
-export const KidsForm: React.FC = ({ setList }) => {
-  const { nameInput, ageInput, handleSubmit } = useForm();
+export const KidsForm: React.FC<FormProps> = ({ list, setList }) => {
+  const { nameInput, ageInput, handleSubmit } = useForm(list, setList);
 
   return (
     <form onSubmit={handleSubmit} className={style.kidForm}>
